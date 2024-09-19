@@ -20,6 +20,7 @@ const HotelRecord = () => {
   const [openingDate, setOpeningDate] = useState("");
   const [isAdmin, setIsAdmin] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
+   const [availabilityFilter, setAvailabilityFilter] = useState('All'); 
 
   useEffect(() => {
     const fetchHotels = async () => {
@@ -43,6 +44,18 @@ const HotelRecord = () => {
     };
     fetchHotels();
   }, []);
+
+   useEffect(() => {
+    // Filter hotels based on availabilityFilter
+    if (availabilityFilter === 'All') {
+      setFilteredHotels(hotels);
+    } else {
+      const isAvailableFilter = availabilityFilter === 'Available';
+      setFilteredHotels(
+        hotels.filter((hotel) => hotel.isAvailable === isAvailableFilter)
+      );
+    }
+  }, [availabilityFilter, hotels]);
 
   const handleDelete = async (id) => {
     Swal.fire({
@@ -143,76 +156,74 @@ const HotelRecord = () => {
   ];
 
   return (
-    <div className="hero bg-[#F2F9FF] min-h-screen">
-      {/* Search section with sticky position */}
-      <div className="fixed w-full max-w-md mt-20 bg-[#F2F9FF] z-10 p-4 top-0">
-        {/* Search component for filtering by Room Type */}
+     <div className="hero bg-[#F2F9FF] min-h-screen">
+      <div className="fixed w-full max-w-md mt-20 bg-[#F2F9FF] z-10 p-2 top-0">
         <Search hotels={hotels} setFilterHotels={setFilteredHotels} />
       </div>
-
       {/* Hotel list section */}
-      <div className="hero-content mt-44 flex-col lg:flex-row flex-wrap gap-8 justify-center">
-        {filteredHotels.map((hotel) => (
-          <div
-            key={hotel.id}
-            className="max-w-sm rounded-lg shadow-lg bg-white p-6 border border-gray-200"
+      <div className="hero-content mt-44 flex flex-wrap justify-center gap-8">
+  {filteredHotels.map((hotel) => (
+    <div
+      key={hotel.id}
+      className="flex flex-col max-w-sm w-full bg-white rounded-lg shadow-lg border border-gray-200"
+    >
+      <img
+        src={hotel.roomImage}
+        alt="Room"
+        className="w-full h-48 object-cover rounded-t-lg"
+      />
+      <div className="p-6 flex flex-col flex-grow">
+        <h2 className="text-2xl font-bold mb-2">{hotel.roomType}</h2>
+        <p className="text-lg">Room Number: {hotel.roomNumber}</p>
+        <p className="text-lg">Price per Night: ${hotel.PricePerNight}</p>
+        <p className="text-lg">
+          Availability:{" "}
+          <span
+            className={
+              hotel.isAvailable ? "text-green-600" : "text-red-600"
+            }
           >
-            <img
-              src={hotel.roomImage}
-              alt="Room"
-              className="rounded-lg shadow-lg mb-4"
-            />
-            <h2 className="text-2xl font-bold mb-2">{hotel.roomType}</h2>
-            <p className="text-lg">Room Number: {hotel.roomNumber}</p>
-            <p className="text-lg">Price per Night: ${hotel.PricePerNight}</p>
-            <p className="text-lg">
-              Availability:{" "}
-              <span
-                className={
-                  hotel.isAvailable ? "text-green-600" : "text-red-600"
-                }
-              >
-                {hotel.isAvailable ? "Available" : "Not Available"}
-              </span>
-            </p>
-            <p className="text-sm text-gray-500">
-              Opening Date: {new Date(hotel.openingDate).toLocaleDateString()}
-            </p>
-            <div className="mt-4 flex justify-between">
-              {user && (
-                <div className="card-actions justify-end">
-                  {( user.roles.includes("ROLES_ADMIN")) && (
-                    <>
-                      <button
-                        onClick={() => handleDelete(hotel.id)}
-                        className="btn bg-[#FF6F61] text-white hover:bg-[#FF3D39]"
-                      >
-                        Delete
-                      </button>
-                       </>
-                  )}
-                  {(user.roles.includes("ROLES_MODERATOR") || user.roles.includes("ROLES_ADMIN")) && (
-                    <>
-                    
-                      <button
-                        onClick={() => handleOpenModal(hotel)}
-                        className="btn bg-[#9DBDFF] text-white hover:bg-[#7FB3FF]"
-                      >
-                        Edit
-                      </button>
-                   </>
-                  )}
+            {hotel.isAvailable ? "Available" : "Not Available"}
+          </span>
+        </p>
+        <p className="text-sm text-gray-500">
+          Opening Date: {new Date(hotel.openingDate).toLocaleDateString()}
+        </p>
+        <div className="mt-auto flex justify-between">
+          {user && (
+            <div className="card-actions justify-end">
+              {user.roles.includes("ROLES_ADMIN") && (
+                <>
                   <button
-                    onClick={() => handleOpenDetailsModal(hotel)}
-                    className="btn bg-[#4CAF50] text-white hover:bg-[#388E3C]"
+                    onClick={() => handleDelete(hotel.id)}
+                    className="btn bg-[#FF6F61] text-white hover:bg-[#FF3D39]"
                   >
-                    Details
+                    Delete
                   </button>
-                </div>
+                </>
               )}
+              {(user.roles.includes("ROLES_MODERATOR") || user.roles.includes("ROLES_ADMIN")) && (
+                <>
+                  <button
+                    onClick={() => handleOpenModal(hotel)}
+                    className="btn bg-[#9DBDFF] text-white hover:bg-[#7FB3FF]"
+                  >
+                    Edit
+                  </button>
+                </>
+              )}
+              <button
+                onClick={() => handleOpenDetailsModal(hotel)}
+                className="btn bg-[#88D66C] text-white hover:bg-[#388E3C]"
+              >
+                Details
+              </button>
             </div>
-          </div>
-        ))}
+          )}
+        </div>
+      </div>
+    </div>
+  ))}
 
         {/* Modal for editing hotel */}
         <dialog id="my_modal_1" className="modal">

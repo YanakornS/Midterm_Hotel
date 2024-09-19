@@ -1,15 +1,33 @@
 // src/Routers/Router.jsx
+
+import { lazy } from "react";
+
+const Home = lazy(() => import("../pages/Home"));
+const Layout = lazy(() => import("../component/Layout"));
+
+
+
+
+
+
+
 import { createBrowserRouter } from "react-router-dom";
-import Layout from "../component/Layout";
-import Home from "../pages/Home";
+// import Layout from "../component/Layout";
+// import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import AddHotel from "../pages/AddHotel";
 import AdminPage from "../pages/AdminPage";
 import NotAllowed from "../pages/NotAllowed";
 import UsePage from "../pages/UsePage";
+import UserProfile from "../pages/UserProfile";
 
 import LandingPage from "../pages/LandingPage";
+// import Home from './../pages/Home';
+
+
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,7 +56,11 @@ const router = createBrowserRouter([
       },
       {
         path:"NotAllowed",
-        element:<NotAllowed />
+        element:  <NotAllowed />
+      },
+      {
+        path: "UserProfile",
+        element: <UsePage><UserProfile /></UsePage> ,
       },
     
       

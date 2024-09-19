@@ -34,10 +34,7 @@ function Navbar() {
       { name: "Home", link: "/home" },
       { name: "AddHotel", link: "/AddHotel" },
     ],
-    ROLES_MODERATOR: [
-      { name: "Add restaurant", link: "/addMenu" },
-      { name: "Search", link: "/search" },
-    ],
+    ROLES_MODERATOR: [{ name: "Home", link: "/home" }],
   };
 
   return (
@@ -80,21 +77,21 @@ function Navbar() {
             </ul>
           </div>
         </div>
-        <div className="navbar-center">
-          <a href="/Home" className="text-2xl font-bold">
+        <div className="navbar-center  ">
+          <a href="/Home" className="text-2xl  font-bold">
             <Header />
           </a>
         </div>
-        <div className="navbar-end flex items-center space-x-4">
+        <div className="navbar-end flex items-center   space-x-4">
           {user ? (
-            <div className="flex items-center space-x-2">
-              <span>
+            <div className="flex items-center space-x-2 border border-gray-300 rounded-lg shadow-xl  px-3 py-1.5">
+              <span className="text-sm">
                 Welcome, <span className="font-semibold">{user.username}</span>
               </span>
               <UserProfile />
             </div>
           ) : (
-            <div className="space-x-2">
+            <div className="flex items-center space-x-2 border border-gray-300 rounded-lg shadow-sm bg-[#9DBDFF] px-3 py-1.5">
               <a href="/login">
                 <LoginButton />
               </a>
