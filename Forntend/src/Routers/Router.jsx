@@ -1,33 +1,36 @@
-// src/Routers/Router.jsx
-
 import { lazy } from "react";
-
 const Home = lazy(() => import("../pages/Home"));
 const Layout = lazy(() => import("../component/Layout"));
+const Login = lazy(() => import("../pages/Login"));
+const Register = lazy(() => import("../pages/Register"));
+const AddHotel = lazy(() => import("../pages/AddHotel"));
+const AdminPage = lazy(() => import("../pages/AdminPage"));
+const NotAllowed = lazy(() => import("../pages/NotAllowed"));
+const UsePage = lazy(() => import("../pages/UsePage"));
+const UserProfile = lazy(() => import("../pages/UserProfile"));
+const LandingPage = lazy(() => import("../pages/LandingPage"));
 
 
 
+
+
+
+
+
+// import Layout from "../component/Layout";
+// import Login from "../pages/Login";
+// import Register from "../pages/Register";
+// import AddHotel from "../pages/AddHotel";
+// import AdminPage from "../pages/AdminPage";
+// import NotAllowed from "../pages/NotAllowed";
+// import UsePage from "../pages/UsePage";
+// import UserProfile from "../pages/UserProfile";
+// import LandingPage from "../pages/LandingPage";
 
 
 
 
 import { createBrowserRouter } from "react-router-dom";
-// import Layout from "../component/Layout";
-// import Home from "../pages/Home";
-import Login from "../pages/Login";
-import Register from "../pages/Register";
-import AddHotel from "../pages/AddHotel";
-import AdminPage from "../pages/AdminPage";
-import NotAllowed from "../pages/NotAllowed";
-import UsePage from "../pages/UsePage";
-import UserProfile from "../pages/UserProfile";
-
-import LandingPage from "../pages/LandingPage";
-// import Home from './../pages/Home';
-
-
-
-
 const router = createBrowserRouter([
   {
     path: "/",

@@ -9,7 +9,6 @@ import SuspenseContent from './component/SuspenseContent.jsx';
 
 // Use createRoot from react-dom/client
 const root = createRoot(document.getElementById('root'));
-
 root.render(
   <StrictMode>
     <Suspense fallback={<SuspenseContent />}> {/* คลุม AuthProvider และ RouterProvider ด้วย Suspense */}

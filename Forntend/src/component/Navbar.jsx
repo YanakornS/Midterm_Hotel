@@ -7,6 +7,9 @@ import { useAuthContext } from "../Contexts/AuthContext";
 import Search from "./Search";
 import HotelService from "../services/hotel.service";
 
+// นำเข้ารูป PNG
+import logo from "../assets/logo.png"; // ใส่พาธที่ถูกต้องของรูปคุณ
+
 function Navbar() {
   const { user } = useAuthContext();
   const [hotels, setHotels] = useState([]);
@@ -39,8 +42,9 @@ function Navbar() {
 
   return (
     <>
-      <div className="navbar bg-[#9DBDFF] text-white shadow-lg px-4 py-2 fixed w-full top-3 left-0 z-50">
-        <div className="navbar-start">
+      <div className="navbar bg-[#9DBDFF] text-white shadow-lg px-4 py-2 fixed w-full top-0 left-0 z-50">
+        <div className="navbar-start flex items-center">
+          {/* Dropdown */}
           <div className="dropdown">
             <div
               tabIndex={0}
@@ -76,15 +80,28 @@ function Navbar() {
                 ))}
             </ul>
           </div>
+
+          {/* Logo */}
+          <div className="ml-2">
+            <a href="/home">
+              <img
+                src={logo} // ใช้รูปจากไฟล์ PNG ที่นำเข้ามา
+                alt="Logo"
+                className="  h-20 w-20"
+              />
+            </a>
+          </div>
         </div>
-        <div className="navbar-center  ">
-          <a href="/Home" className="text-2xl  font-bold">
+
+        <div className="navbar-center">
+          <a href="/Home" className="text-2xl font-bold">
             <Header />
           </a>
         </div>
-        <div className="navbar-end flex items-center   space-x-4">
+
+        <div className="navbar-end flex items-center space-x-4">
           {user ? (
-            <div className="flex items-center space-x-2 border border-gray-300 rounded-lg shadow-xl  px-3 py-1.5">
+            <div className="flex items-center space-x-2 border border-gray-300 rounded-lg shadow-xl px-3 py-1.5">
               <span className="text-sm">
                 Welcome, <span className="font-semibold">{user.username}</span>
               </span>
@@ -102,6 +119,7 @@ function Navbar() {
           )}
         </div>
       </div>
+
       {/* Add Search below Navbar
       <div className="flex justify-center items-center mt-20 p-4 bg-[#F2F9FF]">
         <Search hotels={hotels} setFilterHotels={setFilteredHotels} />

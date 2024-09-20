@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-const PageNews = () => {
+const PageSlide = () => {
   useEffect(() => {
     const links = document.querySelectorAll(".carousel a");
     links.forEach(link => {
@@ -68,4 +68,4 @@ const PageNews = () => {
   );
 };
 
-export default PageNews;
+export default PageSlide;

@@ -1,6 +1,5 @@
-// src/components/Search.js
-
 import React, { useState, useEffect } from "react";
+import searchIcon from "../assets/search.png"; // นำเข้ารูปภาพค้นหา
 
 const Search = ({ hotels, setFilterHotels }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -49,13 +48,16 @@ const Search = ({ hotels, setFilterHotels }) => {
       }`}
     >
       <div className="flex flex-col md:flex-row md:items-center md:space-x-4">
-        <input
-          type="text"
-          placeholder="Search by room type"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="input input-bordered w-full md:w-4/5 mb-2 md:mb-0" // ปรับความกว้างที่นี่
-        />
+        <div className="relative w-full md:w-4/5 mb-2 md:mb-0">
+          <img src={searchIcon} alt="Search" className="absolute left-3 top-2 w- h-6" /> {/* ปรับขนาดรูปตามต้องการ */}
+          <input
+            type="text"
+            placeholder="Search by room type"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="input input-bordered w-full pl-10" // เพิ่ม padding ด้านซ้ายเพื่อไม่ให้ทับกับรูป
+          />
+        </div>
         <div className="flex items-center space-x-2 md:space-x-4">
           <select
             value={availabilityFilter}
