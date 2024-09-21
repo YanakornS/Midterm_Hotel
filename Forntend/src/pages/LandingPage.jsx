@@ -16,7 +16,7 @@ const LandingPage = () => {
         <PagesLikes />
       </div>
 
-      {/* News Section */}
+      {/* News Section */ }
       <div>
         <PageNews />
       </div>

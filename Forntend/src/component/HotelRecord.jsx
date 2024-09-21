@@ -5,6 +5,11 @@ import Tokenservice from "../services/token.services";
 import { useAuthContext } from "../Contexts/AuthContext";
 import Search from "./Search"; // Import the Search component
 
+// นำเข้ารูปภาพ
+import Deleteicon from "../assets/Delete.png"; 
+import Edit from "../assets/edit.png";
+import Details from "../assets/details.png";
+
 const HotelRecord = () => {
   const { user } = useAuthContext();
   const [hotels, setHotels] = useState([]);
@@ -67,15 +72,15 @@ const HotelRecord = () => {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
-      if (result.isConfirmed) {
-        try {
-          await HotelService.deleteHotel(id);
-          setHotels(hotels.filter((hotel) => hotel.id !== id));
-          setFilteredHotels(filteredHotels.filter((hotel) => hotel.id !== id));
-          Swal.fire("Deleted!", "Hotel has been deleted.", "success");
-        } catch (err) {
-          Swal.fire("Error!", "Failed to delete hotel.", "error");
-        }
+    if (result.isConfirmed) {
+      try {
+        await HotelService.deleteHotel(id);
+        setHotels(hotels.filter((hotel) => hotel.id !== id));
+        setFilteredHotels(filteredHotels.filter((hotel) => hotel.id !== id));
+        Swal.fire("Deleted!", `Hotel with ID ${id} has been deleted.`, "success");
+      } catch (err) {
+        Swal.fire("Error!", "Failed to delete hotel.", "error");
+      }
       }
     });
   };
@@ -231,8 +236,7 @@ const HotelRecord = () => {
                 />
               </div>
 
-
-                  {/* เช็คว่าใครสามารถเห็นปุ่่มได้มั้งตาม Roles  */}
+              {/* เช็คว่าใครสามารถเห็นปุ่่มได้มั้งตาม Roles  */}
               <div className="mt-auto flex justify-between">
                 {user && (
                   <div className="card-actions justify-end">
@@ -240,8 +244,13 @@ const HotelRecord = () => {
                       <>
                         <button
                           onClick={() => handleDelete(hotel.id)}
-                          className="btn bg-[#FF6F61] text-white hover:bg-[#FF3D39]"
+                          className="btn bg-[#FF6F61] text-white hover:bg-[#FF3D39] flex items-center gap-2"
                         >
+                          <img
+                            src={Deleteicon}
+                            alt="Delete Icon"
+                            className="w-5 h-5"
+                          />
                           Delete
                         </button>
                       </>
@@ -252,7 +261,11 @@ const HotelRecord = () => {
                         <button
                           onClick={() => handleOpenModal(hotel)}
                           className="btn bg-[#9DBDFF] text-white hover:bg-[#7FB3FF]"
-                        >
+                        ><img
+                            src={Edit}
+                            alt="Delete Icon"
+                            className="w-5 h-5"
+                          />
                           Edit
                         </button>
                       </>
@@ -260,7 +273,11 @@ const HotelRecord = () => {
                     <button
                       onClick={() => handleOpenDetailsModal(hotel)}
                       className="btn bg-[#88D66C] text-white hover:bg-[#388E3C]"
-                    >
+                    ><img
+                            src={Details}
+                            alt="Delete Icon"
+                            className="w-5 h-5"
+                          />
                       Details
                     </button>
                   </div>

@@ -9,6 +9,7 @@ const NotAllowed = lazy(() => import("../pages/NotAllowed"));
 const UsePage = lazy(() => import("../pages/UsePage"));
 const UserProfile = lazy(() => import("../pages/UserProfile"));
 const LandingPage = lazy(() => import("../pages/LandingPage"));
+const ProtectRegister = lazy(() => import("../pages/ProtectRegister"));
 
 
 
@@ -51,7 +52,7 @@ const router = createBrowserRouter([
       },
       {
         path: "Register",
-        element: <Register />,
+        element: <ProtectRegister><Register /></ProtectRegister>,
       },
       { 
         path: "AddHotel",

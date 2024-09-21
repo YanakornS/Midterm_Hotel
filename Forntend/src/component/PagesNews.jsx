@@ -4,7 +4,7 @@ const PagesNews = () => {
   return (
     <div>
       {/* โปรโมชั่น */}
-      <div className="p-4 bg-gray-100 rounded-lg shadow-md">
+      <div className="p-4 bg-[#F2F9FF] rounded-lg shadow-md">
         <h2 className="text-xl font-semibold mb-4">Special Offers</h2>
         <div className="flex flex-wrap -m-2">
           <div className="w-full md:w-1/2 lg:w-1/3 p-2">
@@ -44,7 +44,7 @@ const PagesNews = () => {
       </div>
 
       {/* โปรโมชั่นสำหรับเที่ยวบินและกิจกรรมท่องเที่ยว */}
-      <div className="p-4 bg-gray-100 rounded-lg shadow-md mt-4">
+      <div className="p-4 bg-[#F2F9FF]rounded-lg shadow-md mt-4">
         <h2 className="text-xl font-semibold mb-4">Promotions for Travel Activities</h2>
         <div className="flex flex-wrap -m-2">
           {/* โปรโมชั่นสำหรับเที่ยวบิน */}

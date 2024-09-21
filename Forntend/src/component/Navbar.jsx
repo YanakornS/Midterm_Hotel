@@ -8,7 +8,7 @@ import Search from "./Search";
 import HotelService from "../services/hotel.service";
 
 // นำเข้ารูป PNG
-import logo from "../assets/logo.png"; // ใส่พาธที่ถูกต้องของรูปคุณ
+import logo from "../assets/hotel.png"; // ใส่พาธที่ถูกต้องของรูปคุณ
 
 function Navbar() {
   const { user } = useAuthContext();
