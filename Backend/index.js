@@ -8,8 +8,9 @@ const app = express();
 const role = db.Role;
 const cors = require("cors");
 
+const frontend_url = process.env.FRONTEND_URL;
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: frontend_url,
 };
 
 app.use(cors(corsOptions)); // ใช้การตั้งค่า CORS
