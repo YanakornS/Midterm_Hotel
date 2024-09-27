@@ -3,8 +3,8 @@ import { useAuthContext } from "../Contexts/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 
 //Import รูปเข้ามา
-import Logout from "../assets/logout.png";
-import Profile from "../assets/profile.png";
+import Logout from "../assets/Logout.png";
+import Profile from "../assets/Profile.png";
 
 const UserProfile = () => {
   const { logout } = useAuthContext(); // ดึงฟังก์ชัน logout จาก context
