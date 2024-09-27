@@ -3,9 +3,8 @@ import HotelService from "../services/hotel.service";
 import Swal from "sweetalert2";
 import Tokenservice from "../services/token.services";
 import { useAuthContext } from "../Contexts/AuthContext";
-import Search from "./Search"; // Import the Search component
+import Search from "./Search"; 
 
-// นำเข้ารูปภาพ
 import Deleteicon from "../assets/Delete.png"; 
 import Edit from "../assets/edit.png";
 import Details from "../assets/details.png";
