@@ -14,7 +14,7 @@ const UserProfile = () => {
               src="https://cdn-icons-png.freepik.com/512/7718/7718888.png"
               alt="User Profile"
             />
-          
+            {/* Green Dot */}
             <div className="absolute bottom-0 right-0 w-4 h-4 bg-green-500 rounded-full border-2 border-white"></div>
           </div>
           <div>
