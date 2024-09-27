@@ -6,8 +6,6 @@ import UserProfile from "./UserProfile";
 import { useAuthContext } from "../Contexts/AuthContext";
 import Search from "./Search";
 import HotelService from "../services/hotel.service";
-
-// นำเข้ารูป PNG
 import logo from "../assets/hotel.png"; // ใส่พาธที่ถูกต้องของรูปคุณ
 
 function Navbar() {
