@@ -1,8 +1,7 @@
 import React from "react";
 import { useAuthContext } from "../Contexts/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
-import Logout from "../assets/Logout.png";
-import Profile from "../assets/Profile.png";
+
 
 const UserProfile = () => {
   const { logout } = useAuthContext(); // ดึงฟังก์ชัน logout จาก context
@@ -40,7 +39,7 @@ const UserProfile = () => {
               className="flex items-center justify-between text-[#007BFF] hover:bg-[#F0F4FF] px-4 py-2 rounded-md"
             >
               Profile
-              <img src={Profile} alt="Profiles Icon" className="w-5 h-5" />
+           
             </Link>
           </li>
 
@@ -50,7 +49,7 @@ const UserProfile = () => {
               onClick={handleLogout}
             >
               Logout
-              <img src={Logout} alt="Logout Icon" className="w-5 h-5" />
+           
             </a>
           </li>
         </ul>
