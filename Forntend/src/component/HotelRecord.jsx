@@ -7,7 +7,7 @@ import Search from "./Search";
 
 import Deleteicon from "../assets/Delete.png"; 
 import Edit from "../assets/edit.png";
-import Details from "../assets/details.png";
+// import Details from "../assets/details.png";
 
 const HotelRecord = () => {
   const { user } = useAuthContext();
@@ -272,11 +272,12 @@ const HotelRecord = () => {
                     <button
                       onClick={() => handleOpenDetailsModal(hotel)}
                       className="btn bg-[#88D66C] text-white hover:bg-[#388E3C]"
-                    ><img
-                            src={Details}
-                            alt="Delete Icon"
-                            className="w-5 h-5"
-                          />
+                 >        
+                  {/* /<img
+                    //         src={Details}
+                    //         alt="Delete Icon"
+                    //         className="w-5 h-5"
+                    //       /> */}
                       Details
                     </button>
                   </div>
