@@ -1,8 +1,6 @@
 import React from "react";
 import { useAuthContext } from "../Contexts/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
-
-//Import รูปเข้ามา
 import Logout from "../assets/Logout.png";
 import Profile from "../assets/Profile.png";
 
