@@ -2,9 +2,7 @@ import React from "react";
 import { useAuthContext } from "../Contexts/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 
-//Import รูปเข้ามา
-import Logout from "../assets/logout.png";
-import Profiles from "../assets/profiles.png";
+
 
 const UserProfile = () => {
   const { logout } = useAuthContext(); // ดึงฟังก์ชัน logout จาก context
@@ -42,7 +40,7 @@ const UserProfile = () => {
               className="flex items-center justify-between text-[#007BFF] hover:bg-[#F0F4FF] px-4 py-2 rounded-md"
             >
               Profile
-              <img src={Profiles} alt="Profiles Icon" className="w-5 h-5" />
+           
             </Link>
           </li>
 
@@ -52,7 +50,7 @@ const UserProfile = () => {
               onClick={handleLogout}
             >
               Logout
-              <img src={Logout} alt="Logout Icon" className="w-5 h-5" />
+             
             </a>
           </li>
         </ul>
