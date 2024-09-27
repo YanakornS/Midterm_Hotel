@@ -8,7 +8,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="pt-4 bg-[#F2F9FF]"> {/* Add padding-top and background color */}
+      <div className="pt-4 bg-[#F2F9FF]"> 
         <HotelRecord />
         
       </div>
