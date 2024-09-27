@@ -19,7 +19,7 @@ const PagesLikes = () => {
     setLiked(!liked);
   };
 
-  // ฟังก์ชันจัดการการกดจอง
+  // ฟังก์ชันจัดการการกดจองสามารถกดได้
   const handleBooking = () => {
     setBookings(booked ? bookings - 1 : bookings + 1);
     setBooked(!booked);
